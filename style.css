@@ -1,0 +1,281 @@
+/* ==================== GLOBAL & VARIABLES ==================== */
+:root {
+  --primary-color: #00f7ff;
+  --bg-gradient: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  --text-color: #e0e0e0;
+  --dark-text-color: #171616;
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --card-border: rgba(0, 247, 255, 0.25);
+  --card-hover-bg: rgba(255, 255, 255, 0.1);
+  --nav-bg: rgba(0, 247, 255, 0.25);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif; /* Recommended to add this font in HTML head from Google Fonts */
+  background: var(--bg-gradient);
+  color: var(--text-color);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+body.dark-mode {
+  /* Example of dark mode styles, can be expanded */
+  --bg-gradient: linear-gradient(135deg, #000000, #0d1b2a);
+  --text-color: #ffffff;
+  --card-bg: rgba(255, 255, 255, 0.08);
+}
+
+/* ==================== HEADER ==================== */
+header {
+  padding: 100px 30px;
+  text-align:center;
+  background: linear-gradient(to right, #15c5c5, #64c60e);
+  color: var(--dark-text-color);
+  animation: fadeIn 1.5s ease-out;
+}
+
+header h2 {
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+header h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  margin: 0;
+}
+
+header p {
+  font-size: 1.2rem;
+  margin-top: 10px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ==================== NAVIGATION ==================== */
+nav {
+  background-color: var(--nav-bg);
+  padding: 15px 30px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+nav a {
+  color: var(--text-color);
+  text-decoration: none;
+  margin: 0 20px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--primary-color);
+}
+
+#toggle-dark {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-left: 20px;
+  transition: transform 0.3s ease;
+}
+#toggle-dark:hover {
+  transform: scale(1.2);
+}
+
+/* ==================== SECTIONS & CARDS ==================== */
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+section {
+  padding: 60px 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+section h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  border-bottom: 3px solid var(--primary-color);
+  display: inline-block;
+  padding-bottom: 10px;
+  /* Center the h2 */
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  padding: 25px;
+  border-radius: 15px;
+  transition: transform 0.3s ease, background 0.3s ease;
+  backdrop-filter: blur(5px);
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  background: var(--card-hover-bg);
+  border-color: var(--primary-color);
+}
+
+.card h3 {
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+/* ==================== CONTACT & FORM ==================== */
+#contact {
+  text-align:position;
+}
+
+.social-links {
+  margin: 30px 0;
+}
+
+.social-links a {
+  color: var(--text-color);
+  font-size: 2rem;
+  margin: 0 16px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-links a:hover {
+  color: var(--primary-color);
+  transform: scale(1.2);
+}
+
+#contact form {
+  max-width: 600px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#contact input,
+#contact textarea {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  font-size: 1rem;
+  background-color: var(--card-bg);
+  color: var(--text-color);
+}
+
+#contact input::placeholder,
+#contact textarea::placeholder {
+  color: #f0eeee;
+}
+
+#contact button {
+  background: var(--primary-color);
+  color: var(--dark-text-color);
+  font-weight: bold;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  font-size: 1rem;
+}
+
+#contact button:hover {
+  background: #cb8100;
+  transform: scale(1.05);
+}
+
+/* ==================== FOOTER ==================== */
+footer {
+  padding: 20px;
+  text-align: center;
+  background: #121111;
+  font-size: 0.9rem;
+  margin-top: 40px;
+}
+
+/* ==================== ANIMATIONS ==================== */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.animate.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.certification-grid, .project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  justify-items: center;
+}
+
+.certification-grid img, .project-grid img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.certification-grid img:hover, .project-grid img:hover {
+  transform: scale(1.05);
+}
+
+/* ==================== RESPONSIVE DESIGN ==================== */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2.8rem;
+  }
+  nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px;
+  }
+  nav a {
+    margin: 5px 10px;
+  }
+  section h2 {
+    font-size: 2rem;
+  }
+}
